@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+main {
+  margin: 56px 0 24px;
+}
+
+.mt-header {
+  margin-top: calc(56px + 24px);
+}
