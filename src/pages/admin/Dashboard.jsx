@@ -29,7 +29,9 @@ const Dashboard = ({ data }) => {
           </ul>
         </div>
         <div className="col-10 p-4">
-          <button className="btn btn-info mb-2">Add +</button>
+          <Link to="/admin/product-form" className="btn btn-info mb-2">
+            Add +
+          </Link>
           <table className="table table-bordered table-striped">
             <thead>
               <tr>
@@ -47,16 +49,23 @@ const Dashboard = ({ data }) => {
                   <td>{title}</td>
                   <td>{price}$</td>
                   <td>
-                    <img
-                      src={thumbnail}
-                      alt={title}
-                      style={{ width: "150px" }}
-                    />
+                    {thumbnail ? (
+                      <img
+                        src={thumbnail}
+                        alt={title}
+                        style={{ width: "150px" }}
+                      />
+                    ) : (
+                      "No thumbnail"
+                    )}
                   </td>
                   <td>
-                    <button className="btn btn-warning me-2 btn-sm">
+                    <Link
+                      to={`/admin/product-form/${id}`}
+                      className="btn btn-warning me-2 btn-sm"
+                    >
                       Edit
-                    </button>
+                    </Link>
                     <button className="btn btn-danger btn-sm">Delete</button>
                   </td>
                 </tr>
