@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductForm from "./pages/admin/ProductForm";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -51,7 +53,9 @@ function App() {
         );
         if (confirmDelete) {
           await instance.delete(`products/${id}`);
-          const newData = products.filter((product) => product.id !== id);
+          const newData = products.filter(
+            (product) => product.id !== id && product
+          );
           setProducts(newData);
         }
       } catch (error) {
@@ -85,6 +89,8 @@ function App() {
             path="/admin/product-form/"
             element={<ProductForm handleSubmitForm={handleSubmitForm} />}
           />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

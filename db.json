@@ -1796,5 +1796,27 @@
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
     }
+  ],
+  "users": [
+    {
+      "email": "hoppv04@fpt.edu.vn",
+      "password": "$2a$10$bYMVgta98TVwgwd8UInirehA9WfZXEyR2esSD6ald.uHFlKnsUYMG",
+      "id": 1
+    },
+    {
+      "email": "pvhxd1@fpt.edu.vn",
+      "password": "$2a$10$ae/wbr6Zv2.nkJtvAOuAFOPBsG9mAAfP19jSO/0ONsPULPiZp.zIa",
+      "id": 2
+    },
+    {
+      "email": "test@fpt.edu.vn",
+      "password": "$2a$10$9wnWNDCQmRjS6iBoTVpCluJOmkeqKkCwuThcQaBF.IeXXXp0AjUeC",
+      "id": 3
+    },
+    {
+      "email": "phamhopxd1@fpt.edu.vn",
+      "password": "$2a$10$9NGtPh36WINKBlCEXQogzO5kqf8N0RZYULqszMCmFHI3N3kYUP2pO",
+      "id": 4
+    }
   ]
 }
