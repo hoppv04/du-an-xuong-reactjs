@@ -14,14 +14,14 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    try {
-      (async () => {
+    (async () => {
+      try {
         const { data } = await instance.get("/products");
         setProducts(data);
-      })();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, []);
 
   const handleSubmitForm = (data) => {

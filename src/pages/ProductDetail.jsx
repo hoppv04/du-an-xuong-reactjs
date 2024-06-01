@@ -7,14 +7,14 @@ const ProductDetail = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    try {
-      (async () => {
+    (async () => {
+      try {
         const { data } = await instance.get(`/products/${id}`);
         setProduct(data);
-      })();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, [id]);
 
   const { title, brand, price, description, thumbnail } = product;
