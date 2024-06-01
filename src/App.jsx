@@ -24,25 +24,42 @@ function App() {
     })();
   }, []);
 
-  const handleSubmitForm = (data) => {
-    (async () => {
+  const handleSubmitForm = async (data) => {
+    try {
+      if (data.id) {
+        await instance.patch(`products/${data.id}`, data);
+        const newData = await getProducts();
+        setProducts(newData);
+      } else {
+        const res = await instance.post("products", data);
+        setProducts([...products, res.data]);
+      }
+
+      if (confirm("Successfully, redirect to admin page!")) {
+        navigate("/admin");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteProduct = async (id) => {
+    if (id) {
       try {
-        if (data.id) {
-          await instance.patch(`products/${data.id}`, data);
+        const confirmDelete = window.confirm(
+          "Are you sure you want to delete it?"
+        );
+        if (confirmDelete) {
+          await instance.delete(`products/${id}`);
+          alert("Delete successfully!");
           const newData = await getProducts();
           setProducts(newData);
-        } else {
-          const res = await instance.post("/products", data);
-          setProducts([...products, res.data]);
-        }
-
-        if (confirm("Successfully, redirect to admin page!")) {
           navigate("/admin");
         }
       } catch (error) {
         console.log(error);
       }
-    })();
+    }
   };
 
   return (
@@ -53,7 +70,15 @@ function App() {
           <Route path="/" element={<Home data={products} />} />
           <Route path="/about" element={<About />} />
           <Route path="/product-detail/:id" element={<ProductDetail />} />
-          <Route path="/admin" element={<Dashboard data={products} />} />
+          <Route
+            path="/admin"
+            element={
+              <Dashboard
+                data={products}
+                handleDeleteProduct={handleDeleteProduct}
+              />
+            }
+          />
           <Route
             path="/admin/product-form/:id"
             element={<ProductForm handleSubmitForm={handleSubmitForm} />}

@@ -1795,12 +1795,6 @@
         "https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
-    },
-    {
-      "title": "Iphone X",
-      "price": 34,
-      "description": "Mo ta",
-      "id": 31
     }
   ]
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const Dashboard = ({ data }) => {
+const Dashboard = ({ data, handleDeleteProduct }) => {
   return (
     <>
       <div className="row">
@@ -66,7 +66,12 @@ const Dashboard = ({ data }) => {
                     >
                       Edit
                     </Link>
-                    <button className="btn btn-danger btn-sm">Delete</button>
+                    <button
+                      onClick={() => handleDeleteProduct(id)}
+                      className="btn btn-danger btn-sm"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
