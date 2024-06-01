@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Header from "./components/Header";
 import instance, { getProducts } from "./axios/index";
-import Home from "./pages/Home";
+import LayoutAdmin from "./layouts/LayoutAdmin";
+import LayoutClient from "./layouts/LayoutClient";
 import About from "./pages/About";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
+import Register from "./pages/Register";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductForm from "./pages/admin/ProductForm";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -66,12 +67,14 @@ function App() {
 
   return (
     <>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home data={products} />} />
+      <Routes>
+        <Route path="/" element={<LayoutClient />}>
+          <Route index element={<Home data={products} />} />
           <Route path="/about" element={<About />} />
           <Route path="/product-detail/:id" element={<ProductDetail />} />
+        </Route>
+
+        <Route path="/admin" element={<LayoutAdmin />}>
           <Route
             path="/admin"
             element={
@@ -89,11 +92,12 @@ function App() {
             path="/admin/product-form/"
             element={<ProductForm handleSubmitForm={handleSubmitForm} />}
           />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+        </Route>
+
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
