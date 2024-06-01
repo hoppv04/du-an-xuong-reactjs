@@ -51,10 +51,8 @@ function App() {
         );
         if (confirmDelete) {
           await instance.delete(`products/${id}`);
-          alert("Delete successfully!");
-          const newData = await getProducts();
+          const newData = products.filter((product) => product.id !== id);
           setProducts(newData);
-          navigate("/admin");
         }
       } catch (error) {
         console.log(error);
