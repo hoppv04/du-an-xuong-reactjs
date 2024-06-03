@@ -1817,6 +1817,11 @@
       "email": "phamhopxd1@fpt.edu.vn",
       "password": "$2a$10$9NGtPh36WINKBlCEXQogzO5kqf8N0RZYULqszMCmFHI3N3kYUP2pO",
       "id": 4
+    },
+    {
+      "email": "testauth@gmai.com",
+      "password": "$2a$10$bk/5gfyhbUBUbT.RHMDhJ.eu1ORtbTGpLrqp5ytFYX98y3RKK.BG.",
+      "id": 5
     }
   ]
 }

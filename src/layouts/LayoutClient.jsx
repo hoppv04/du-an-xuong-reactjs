@@ -1,11 +1,13 @@
-/* eslint-disable react/prop-types */
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 
-const LayoutClient = ({ children }) => {
+const LayoutClient = () => {
   return (
     <>
       <Header />
-      <main className="container">{children}</main>
+      <main className="container">
+        <Outlet />
+      </main>
     </>
   );
 };

@@ -1,13 +1,16 @@
-/* eslint-disable react/prop-types */
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import productSchema from "./../../schemaValid/productSchema";
 import instance from "../../axios";
+import { AppContext } from "../../context/AppContext";
 
-const ProductForm = ({ handleSubmitForm }) => {
+const ProductForm = () => {
   const { id } = useParams();
+
+  const { handleSubmitForm } = useContext(AppContext);
+
   const {
     register,
     handleSubmit,

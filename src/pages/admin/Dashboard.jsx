@@ -1,7 +1,10 @@
-/* eslint-disable react/prop-types */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "./../../context/AppContext";
 
-const Dashboard = ({ data, handleDeleteProduct }) => {
+const Dashboard = () => {
+  const { products, handleDeleteProduct } = useContext(AppContext);
+
   return (
     <>
       <div className="row">
@@ -43,7 +46,7 @@ const Dashboard = ({ data, handleDeleteProduct }) => {
               </tr>
             </thead>
             <tbody>
-              {data.map(({ id, title, price, thumbnail }) => (
+              {products.map(({ id, title, price, thumbnail }) => (
                 <tr key={id}>
                   <th scope="row">{id}</th>
                   <td>{title}</td>

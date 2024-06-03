@@ -1,29 +1,17 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import ProductItem from "../components/productItem/ProductItem";
+import { AppContext } from "../context/AppContext";
 
-/* eslint-disable react/prop-types */
-const Home = ({ data }) => {
+const Home = () => {
+  const { products } = useContext(AppContext);
+
   return (
     <>
       <div className="container mt-header">
-        <div className="row row-cols-1 row-cols-md-5 g-4">
-          {data.map(({ id, title, brand, price, thumbnail }) => (
-            <div className="col" key={id}>
-              <div className="card h-100">
-                <Link to={`/product-detail/${id}`}>
-                  <img src={thumbnail} className="card-img-top" alt={title} />
-                </Link>
-                <div className="card-body">
-                  <Link
-                    className="text-decoration-none text-dark"
-                    to={`/product-detail/${id}`}
-                  >
-                    <h5 className="card-title">{title}</h5>
-                  </Link>
-                  <p className="card-text m-0">{brand}</p>
-                  <p className="card-text">{price}$</p>
-                  <button className="btn btn-primary">Add to cart</button>
-                </div>
-              </div>
+        <div className="row">
+          {products.map((product, index) => (
+            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+              <ProductItem product={product} />
             </div>
           ))}
         </div>
