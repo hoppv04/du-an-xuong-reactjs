@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import LayoutClient from "./layouts/LayoutClient";
 import About from "./pages/About";
-import AuthForm from "./components/AuthForm";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductForm from "./pages/admin/ProductForm";
+import AuthForm from "./components/authForm/AuthForm";
 
 function App() {
   return (

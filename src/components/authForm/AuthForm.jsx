@@ -1,8 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import instance from "../axios";
-import authSchema from "../schemaValid/authSchema";
 import { useNavigate } from "react-router-dom";
+import instance from "../../axios";
+import authSchema from "../../schemaValid/authSchema";
+import styles from "./AuthForm.module.scss";
+import Button from "../button/Button";
 
 const AuthForm = ({ isRegister }) => {
   const {
@@ -38,19 +40,18 @@ const AuthForm = ({ isRegister }) => {
 
   return (
     <div>
-      <div className="container mt-header d-flex flex-column justify-content-center align-items-center">
-        <form
-          className="w-50 border border-secondary-subtle p-3 rounded-1 shadow mt-2"
-          onSubmit={handleSubmit(onSubmitForm)}
-        >
-          <h2 className="text-center">{isRegister ? "Register" : "Login"}</h2>
+      <div className="container mt-header d-flex justify-content-center align-items-center">
+        <form className={styles.authForm} onSubmit={handleSubmit(onSubmitForm)}>
+          <h2 className={styles.titleForm}>
+            {isRegister ? "Register" : "Login"}
+          </h2>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="email" className={styles.labelForm}>
               Email:
             </label>
             <input
               type="email"
-              className="form-control"
+              className={styles.inputForm}
               id="email"
               {...register("email", { required: true })}
             />
@@ -59,12 +60,12 @@ const AuthForm = ({ isRegister }) => {
             )}
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
+            <label htmlFor="password" className={styles.labelForm}>
               Password:
             </label>
             <input
               type="password"
-              className="form-control"
+              className={styles.inputForm}
               id="password"
               {...register("password", { required: true })}
             />
@@ -72,9 +73,7 @@ const AuthForm = ({ isRegister }) => {
               <p className="text-danger">{errors.password?.message}</p>
             )}
           </div>
-          <button className="btn btn-secondary w-100">
-            {isRegister ? "Register" : "Login"}
-          </button>
+          <Button width="100%">{isRegister ? "Register" : "Login"}</Button>
         </form>
       </div>
     </div>
