@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./ProductItem.module.scss";
-import Button from "../button/Button";
+import Button from "./../Button/Button";
 
 const ProductItem = ({ product: { id, title, thumbnail, brand, price } }) => {
   return (

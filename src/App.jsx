@@ -7,7 +7,7 @@ import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import ProductForm from "./pages/admin/ProductForm";
-import AuthForm from "./components/authForm/AuthForm";
+import AuthForm from "./components/AuthForm/AuthForm";
 
 function App() {
   return (

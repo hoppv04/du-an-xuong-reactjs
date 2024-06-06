@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import instance from "../../axios";
 import authSchema from "../../schemaValid/authSchema";
 import styles from "./AuthForm.module.scss";
-import Button from "../button/Button";
+import Button from "../Button/Button";
 
 const AuthForm = ({ isRegister }) => {
   const {
