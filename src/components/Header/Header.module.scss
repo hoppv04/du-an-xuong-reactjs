@@ -6,6 +6,22 @@
   background-color: #333;
   z-index: 999;
 
+  .logged {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 24px;
+
+    .userBox {
+      display: flex;
+      align-items: center;
+      .userName {
+        color: #fff;
+        margin: 0;
+      }
+    }
+  }
+
   ul {
     display: flex;
     justify-content: flex-start;

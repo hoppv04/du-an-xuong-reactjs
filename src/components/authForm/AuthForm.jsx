@@ -28,6 +28,7 @@ const AuthForm = ({ isRegister }) => {
       } else {
         const res = await instance.post("/login", data);
         if (res.status === 200) {
+          localStorage.setItem("user", JSON.stringify(res.data));
           alert("Login in successfully!");
           navigate("/");
           reset();

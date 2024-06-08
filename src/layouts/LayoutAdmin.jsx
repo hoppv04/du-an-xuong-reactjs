@@ -1,11 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
 const LayoutAdmin = () => {
-  return (
+  const user = JSON.parse(localStorage.getItem("user"));
+  return user ? (
     <>
       <h2>Hello Admin</h2>
       <Outlet />
     </>
+  ) : (
+    <Navigate to="/login" />
   );
 };
 
