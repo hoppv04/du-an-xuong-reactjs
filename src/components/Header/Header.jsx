@@ -25,7 +25,9 @@ const Header = () => {
               </li>
             </ul>
             <div className={styles.userBox}>
-              <p className={styles.userName}>Hello {user?.user?.email}</p>
+              <p className={styles.userName}>
+                Hello: {user?.user?.email.split("@")[0]}
+              </p>
               <Link to="/admin" className="btn btn-secondary ms-2">
                 Admin
               </Link>

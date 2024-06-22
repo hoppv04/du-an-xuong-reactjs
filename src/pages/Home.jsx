@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import ProductItem from "../components/ProductItem/ProductItem";
-import { AppContext } from "../context/AppContext";
+import { ProductContext } from "../contexts/ProductContext";
 
 const Home = () => {
-  const { products } = useContext(AppContext);
+  const {
+    state: { products },
+  } = useContext(ProductContext);
 
   return (
     <>

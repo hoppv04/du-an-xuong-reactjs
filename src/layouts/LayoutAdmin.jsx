@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const LayoutAdmin = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  return user ? (
+  const accessToken = JSON.parse(localStorage.getItem("user"))?.accessToken;
+  return accessToken ? (
     <>
       <h2>Hello Admin</h2>
       <Outlet />

@@ -1,9 +1,24 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "./../../context/AppContext";
+import { ProductContext } from "../../contexts/ProductContext";
+import instance from "../../axios";
 
 const Dashboard = () => {
-  const { products, handleDeleteProduct } = useContext(AppContext);
+  const {
+    state: { products },
+    dispatch,
+  } = useContext(ProductContext);
+
+  const handleDeleteProduct = async (id) => {
+    try {
+      if (confirm("Delete")) {
+        await instance.delete(`products/${id}`);
+        dispatch({ type: "DELETE_PRODUCT", payload: id });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
