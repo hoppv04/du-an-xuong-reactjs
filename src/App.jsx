@@ -6,8 +6,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
-import ProductForm from "./pages/admin/ProductForm";
 import AuthForm from "./components/AuthForm/AuthForm";
+import ProductForm from "./components/ProductForm/ProductForm";
 
 function App() {
   return (
