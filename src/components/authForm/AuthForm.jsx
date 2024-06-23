@@ -2,9 +2,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import instance from "../../axios";
-import authSchema from "../../schemaValid/authSchema";
-import styles from "./AuthForm.module.scss";
+import { loginSchema, registerSchema } from "../../schemaValid/authSchema";
 import Button from "../Button/Button";
+import styles from "./AuthForm.module.scss";
 
 const AuthForm = ({ isRegister }) => {
   const {
@@ -12,7 +12,9 @@ const AuthForm = ({ isRegister }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(authSchema) });
+  } = useForm({
+    resolver: zodResolver(isRegister ? registerSchema : loginSchema),
+  });
 
   const navigate = useNavigate();
 
@@ -74,6 +76,22 @@ const AuthForm = ({ isRegister }) => {
               <p className="text-danger">{errors.password?.message}</p>
             )}
           </div>
+          {isRegister && (
+            <div className="mb-3">
+              <label htmlFor="confirm-password" className={styles.labelForm}>
+                Confirm password:
+              </label>
+              <input
+                type="password"
+                className={styles.inputForm}
+                id="confirm-password"
+                {...register("confirmPassword", { required: true })}
+              />
+              {errors.confirmPassword?.message && (
+                <p className="text-danger">{errors.confirmPassword?.message}</p>
+              )}
+            </div>
+          )}
           <Button width="100%">{isRegister ? "Register" : "Login"}</Button>
         </form>
       </div>
