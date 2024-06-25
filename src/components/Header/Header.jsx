@@ -28,9 +28,11 @@ const Header = () => {
               <p className={styles.userName}>
                 Hello: {user?.user?.email.split("@")[0]}
               </p>
-              <Link to="/admin" className="btn btn-secondary ms-2">
-                Admin
-              </Link>
+              {user?.user?.role === "admin" && (
+                <Link to="/admin" className="btn btn-secondary ms-2">
+                  Admin
+                </Link>
+              )}
               <button onClick={handleLogout} className="btn btn-danger ms-2">
                 Logout
               </button>
