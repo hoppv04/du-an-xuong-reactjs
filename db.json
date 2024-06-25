@@ -1612,6 +1612,13 @@
       "price": 2,
       "description": "111122",
       "id": 29
+    },
+    {
+      "title": "new product",
+      "price": 1,
+      "description": "Mo ta",
+      "thumbnail": "https://picsum.photos/100/100",
+      "id": 30
     }
   ],
   "users": [

@@ -1,14 +1,16 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const LayoutAdmin = () => {
-  const accessToken = JSON.parse(localStorage.getItem("user"))?.accessToken;
-  return accessToken ? (
+  return (
     <>
-      <h2>Hello Admin</h2>
+      <div className="d-flex justify-center aligns-center p-3">
+        <h2>Hello</h2>
+        <Link to="/" className="btn btn-primary ms-2">
+          Back
+        </Link>
+      </div>
       <Outlet />
     </>
-  ) : (
-    <Navigate to="/login" />
   );
 };
 

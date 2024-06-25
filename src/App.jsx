@@ -8,6 +8,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import AuthForm from "./components/AuthForm/AuthForm";
 import ProductForm from "./components/ProductForm/ProductForm";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -19,10 +20,12 @@ function App() {
           <Route path="product-detail/:id" element={<ProductDetail />} />
         </Route>
 
-        <Route path="/admin" element={<LayoutAdmin />}>
-          <Route index element={<Dashboard />} />
-          <Route path="product-form/:id" element={<ProductForm />} />
-          <Route path="product-form/" element={<ProductForm />} />
+        <Route path="/admin" element={<PrivateRoute />}>
+          <Route path="/admin" element={<LayoutAdmin />}>
+            <Route index element={<Dashboard />} />
+            <Route path="product-form/:id" element={<ProductForm />} />
+            <Route path="product-form/" element={<ProductForm />} />
+          </Route>
         </Route>
 
         <Route path="register" element={<AuthForm isRegister />} />
